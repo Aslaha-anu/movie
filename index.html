@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./movie.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+    <body >
+    
+       
+          <div class="row">
+            <div id="row1" class="col-6">
+           
+            <h3 class="row2">Movie</h3>
+           <input id="userInput" class="b1" type="text" id="userInput" placeholder="search name"><br>
+            <button class="log" onclick="find()">clik</button>
+        </div>
+           <div class="content" id="output">
+
+            </div> 
+        
+</body>
+<script>
+    const find=async()=>{
+        if(userInput.value !=""){
+
+        }
+       const response =await fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=b5d03133${userInput.value}`) 
+        console.log(response);
+        try{
+            const data=await response.json()
+        if(data.status == 404){
+              
+
+                 output.innerHTML=`<h3 class="text-danger"> country ${result.message}</h3> `
+          }
+          else{
+              console.log(data);
+              const movie =result[0]
+              console.log(Object.values(countryDetails.movies)[0]);
+            }
+        output.innerHTML=`<div class="row">
+            <div id="row1" class="col-6">
+           
+            <h3 class="row2">Movie</h3>
+           <input id="userInput" class="b1" type="text" id="userInput" placeholder="search name">${object.value(movie.Actors)}<br>
+            <button class="log" onclick="find()">clik</button>
+        </div>
+            <div class="content" id="output">
+
+            </div>`
+        
+        }
+        catch (err){
+alert("error")
+        }
+    }
+   
+
+</script>
+</html>
